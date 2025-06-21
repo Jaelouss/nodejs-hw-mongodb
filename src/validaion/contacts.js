@@ -7,3 +7,8 @@ export const createContactSchema = Joi.object({
   isFavourite: Joi.boolean(),
   contactType: Joi.string().valid('personal', 'home').required(),
 });
+
+export const updateContactSchema = createContactSchema.fork(
+  ['name', 'phoneNumber', 'contactType'],
+  (field) => field.optional(),
+);
