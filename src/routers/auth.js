@@ -22,8 +22,6 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 
 const router = Router();
 
-router.get('/get-oauth-url', ctrlWrapper(getGoogleOAuthUrlController));
-
 router.post(
   '/register',
 
@@ -52,6 +50,8 @@ router.post(
   validateBody(resetPasswordSchema),
   ctrlWrapper(resetPasswordController),
 );
+
+router.get('/get-oauth-url', ctrlWrapper(getGoogleOAuthUrlController));
 
 router.post(
   '/confirm-oauth',
